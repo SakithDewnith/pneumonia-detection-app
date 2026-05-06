@@ -114,55 +114,32 @@ st.markdown("""
             margin-bottom: 20px !important;
         }
 
-        /* --- THE DEFINITIVE BUTTON-ONLY FIX --- */
-
-/* 1. Remove all borders and backgrounds from the uploader area */
-[data-testid="stFileUploader"] section {
-    border: none !important;
-    background: transparent !important;
-    padding: 0 !important;
-}
-
-/* 2. Hide ALL text instructions, labels, icons, and the "or" text */
-[data-testid="stFileUploader"] label, 
-[data-testid="stFileUploader"] small, 
-[data-testid="stFileUploader"] [data-testid="stMarkdownContainer"] {
-    display: none !important;
-}
-
-            [data-testid="stFileUploaderDropzone"] {
-    display: none !important;
-}
-            
-/* 3. Hide the "Uploaded File" list/box that appears after you pick a file */
-[data-testid="stFileUploader"] ul, 
-[data-testid="stFileUploader"] li, 
-[data-testid="stFileUploaderFile"],
-[data-testid="stFileUploaderFileData"] {
-    display: none !important;
-    height: 0 !important;
-    margin: 0 !important;
-}
-
-/* 4. Force the button to be visible and styled correctly */
-[data-testid="stFileUploader"] button {
+        /* Keep uploader visible */
+[data-testid="stFileUploader"] {
     display: flex !important;
+    justify-content: center !important;
+}
+
+/* Hide drag & drop ONLY */
+[data-testid="stFileUploaderDropzone"] {
+    display: none !important;
+}
+
+/* Hide file list AFTER upload */
+[data-testid="stFileUploader"] ul,
+[data-testid="stFileUploader"] li,
+[data-testid="stFileUploaderFile"] {
+    display: none !important;
+}
+
+/* Style button */
+[data-testid="stFileUploader"] button {
     background-color: #185FA5 !important;
     color: white !important;
-    width: 100% !important;
+    width: 220px !important;
     height: 42px !important;
     border-radius: 8px !important;
     font-weight: 600 !important;
-    justify-content: center !important;
-    align-items: center !important;
-    border: none !important;
-}
-
-/* 5. Ensure the parent container doesn't collapse or hide the button */
-[data-testid="stFileUploader"] {
-    display: block !important;
-    visibility: visible !important;
-    min-height: 42px !important;
 }
 
         .xray-outer {
