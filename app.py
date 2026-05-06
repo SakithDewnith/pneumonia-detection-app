@@ -114,36 +114,48 @@ st.markdown("""
             margin-bottom: 20px !important;
         }
 
-        /* Keep uploader visible */
-[data-testid="stFileUploader"] {
-    display: flex !important;
-    justify-content: center !important;
+        /* --- THE FINAL BUTTON-ONLY SOLUTION --- */
+
+/* 1. Reset the section to be a simple container */
+[data-testid="stFileUploader"] section {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
 }
 
-/* Hide ONLY file list (safe) */
-[data-testid="stFileUploaderFile"],
-[data-testid="fileDeleteBtn"],
-[data-testid="stFileUploader"] ul,
-[data-testid="stFileUploader"] li,
-[data-testid="stFileUploader"] small {
+/* 2. Hide ALL text and icons inside the uploader area */
+[data-testid="stFileUploader"] section > div:not(:has(button)),
+[data-testid="stFileUploader"] label,
+[data-testid="stFileUploader"] small,
+[data-testid="stFileUploader"] [data-testid="stMarkdownContainer"] {
     display: none !important;
 }
 
-/* Hide drag & drop text area ONLY (safe targeting) */
-[data-testid="stFileUploaderDropzone"] {
-    display: none !important;
-}
-
-/* Style ONLY button */
+/* 3. Style the Button and ensure it STAYS visible */
 [data-testid="stFileUploader"] button {
-    display: flex !important;
     background-color: #185FA5 !important;
     color: white !important;
-    width: 220px !important;
-    margin: auto !important;
+    width: 100% !important;
+    height: 42px !important;
     border-radius: 8px !important;
+    font-weight: 600 !important;
+    border: none !important;
+    display: block !important;
+    visibility: visible !important;
 }
-        
+
+/* 4. This is the magic part: hide the 'uploaded file' preview box 
+      that pushes the button away or makes it vanish */
+[data-testid="stFileUploader"] ul,
+[data-testid="stFileUploader"] li,
+[data-testid="stFileUploaderFile"] {
+    display: none !important;
+}
+
+/* 5. Clean up the sidebar spacing */
+[data-testid="stFileUploader"] {
+    margin-bottom: 10px !important;
+}
 
         .xray-outer {
             position: relative;     
