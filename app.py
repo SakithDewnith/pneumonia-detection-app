@@ -114,7 +114,50 @@ st.markdown("""
             margin-bottom: 20px !important;
         }
 
-        
+        /* --- THE ULTIMATE STABLE BUTTON FIX --- */
+
+/* 1. Hide everything except the button */
+[data-testid="stFileUploader"] section > div:not(:has(button)),
+[data-testid="stFileUploader"] label,
+[data-testid="stFileUploader"] small,
+[data-testid="stFileUploaderFile"],
+[data-testid="stFileUploaderFileData"],
+[data-testid="stFileUploaderDeleteBtn"],
+[data-testid="stFileUploader"] ul {
+    display: none !important;
+}
+
+/* 2. Make the uploader container a fixed height so it never moves */
+[data-testid="stFileUploader"] {
+    height: 45px !important;
+    min-height: 45px !important;
+    margin-bottom: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* 3. Force the section to be transparent */
+[data-testid="stFileUploader"] section {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+/* 4. Style the button and force it to be visible */
+[data-testid="stFileUploader"] button {
+    background-color: #185FA5 !important;
+    color: white !important;
+    width: 100% !important;
+    height: 42px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 100 !important;
+}
 
         .xray-outer {
             position: relative;     
@@ -409,23 +452,6 @@ st.markdown("""
 # --- SIDEBAR ---
 with st.sidebar:
     st.title("🫁 Pneumo AI")
-
-    st.markdown("""
-    <div style="
-        display:flex;
-        justify-content:center;
-        margin-top:20px;
-    ">
-""", unsafe_allow_html=True)
-
-upload_clicked = st.button("📤 Upload X-Ray Image")
-
-st.markdown("</div>", unsafe_allow_html=True)
-
-# -----------------------------
-# FILE INPUT (hidden logic)
-# -----------------------------
-if upload_clicked:
 
     uploaded_file = st.file_uploader("", type=["jpg", "png", "jpeg"], key="xray_uploader")
     if uploaded_file:
