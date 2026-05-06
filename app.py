@@ -114,22 +114,32 @@ st.markdown("""
             margin-bottom: 20px !important;
         }
 
-        /* --- THE "STRICTLY BUTTON" FIX --- */
+        /* --- THE ULTIMATE "BUTTON ONLY" FIX --- */
 
-/* 1. Hide the container that holds the uploaded file list and delete button */
+/* 1. Force the uploader to be a flex container and move the button to the top */
+[data-testid="stFileUploader"] {
+    display: flex !important;
+    flex-direction: column-reverse !important; /* This moves the button above the file list */
+}
+
+/* 2. COMPLETELY hide the "Uploaded File" box that pushes the button down */
 [data-testid="stFileUploader"] ul, 
 [data-testid="stFileUploader"] li, 
 [data-testid="stFileUploaderFile"],
-[data-testid="stFileUploaderDeleteBtn"] {
+[data-testid="stFileUploaderDeleteBtn"],
+[data-testid="stFileUploader"] [data-testid="stFileUploaderFileData"] {
     display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-/* 2. Hide all the default instructions, icons, and "Drag and drop" text */
+/* 3. Hide all the "Drag and Drop" instructions and icons */
 [data-testid="stFileUploader"] section > div:not(:has(button)) {
     display: none !important;
 }
 
-/* 3. Remove all box styling (borders/backgrounds) from the dropzone */
+/* 4. Remove the dashed border and background box */
 [data-testid="stFileUploader"] section {
     border: none !important;
     background: transparent !important;
@@ -137,7 +147,7 @@ st.markdown("""
     min-height: unset !important;
 }
 
-/* 4. Ensure the button itself is the only visible thing */
+/* 5. Style the button so it looks consistent */
 [data-testid="stFileUploader"] button {
     background-color: #185FA5 !important;
     color: white !important;
@@ -148,12 +158,7 @@ st.markdown("""
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-}
-
-/* 5. Force the main widget to stay visible after upload */
-[data-testid="stFileUploader"] {
-    display: block !important;
-    visibility: visible !important;
+    margin: 0 !important;
 }
 
         .xray-outer {
