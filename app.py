@@ -410,6 +410,23 @@ st.markdown("""
 with st.sidebar:
     st.title("🫁 Pneumo AI")
 
+    st.markdown("""
+    <div style="
+        display:flex;
+        justify-content:center;
+        margin-top:20px;
+    ">
+""", unsafe_allow_html=True)
+
+upload_clicked = st.button("📤 Upload X-Ray Image")
+
+st.markdown("</div>", unsafe_allow_html=True)
+
+# -----------------------------
+# FILE INPUT (hidden logic)
+# -----------------------------
+if upload_clicked:
+
     uploaded_file = st.file_uploader("", type=["jpg", "png", "jpeg"], key="xray_uploader")
     if uploaded_file:
         st.success("File uploaded successfully!")
