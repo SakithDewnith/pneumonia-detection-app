@@ -1,7 +1,7 @@
 streamlit
-pandas
-numpy
-plotly
-Pillow
+tensorflow==2.15.0
 opencv-python-headless
-tensorflow
+Pillow
+numpy<2.0.0
+plotly
+pandas
