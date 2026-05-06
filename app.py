@@ -114,32 +114,45 @@ st.markdown("""
             margin-bottom: 20px !important;
         }
 
-        /* Keep uploader visible */
+        /* FORCE uploader container stability */
 [data-testid="stFileUploader"] {
     display: flex !important;
     justify-content: center !important;
+    align-items: center !important;
 }
 
-/* Hide drag & drop ONLY */
+/* Hide only visual drag-drop parts */
 [data-testid="stFileUploaderDropzone"] {
     display: none !important;
 }
 
-/* Hide file list AFTER upload */
+/* Hide file list after upload */
 [data-testid="stFileUploader"] ul,
 [data-testid="stFileUploader"] li,
-[data-testid="stFileUploaderFile"] {
+[data-testid="stFileUploaderFile"],
+[data-testid="stFileUploaderFileData"] {
     display: none !important;
 }
 
-/* Style button */
-[data-testid="stFileUploader"] button {
+/* 🎯 IMPORTANT: target ALL button states */
+[data-testid="stFileUploader"] button,
+[data-testid="stFileUploader"] button:hover,
+[data-testid="stFileUploader"] button:active,
+[data-testid="stFileUploader"] button:focus,
+[data-testid="stFileUploader"] button:visited {
     background-color: #185FA5 !important;
     color: white !important;
     width: 220px !important;
     height: 42px !important;
     border-radius: 8px !important;
     font-weight: 600 !important;
+    font-size: 13px !important;
+    border: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
         .xray-outer {
