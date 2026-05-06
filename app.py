@@ -114,51 +114,50 @@ st.markdown("""
             margin-bottom: 20px !important;
         }
 
-        /* --- THE ULTIMATE "BUTTON ONLY" FIX --- */
+        /* --- THE NUCLEAR BUTTON-ONLY FIX --- */
 
-/* 1. Force the uploader to be a flex container and move the button to the top */
-[data-testid="stFileUploader"] {
-    display: flex !important;
-    flex-direction: column-reverse !important; /* This moves the button above the file list */
-}
-
-/* 2. COMPLETELY hide the "Uploaded File" box that pushes the button down */
+/* 1. Hide EVERY SINGLE THING inside the uploader container */
+[data-testid="stFileUploader"] div, 
+[data-testid="stFileUploader"] section, 
+[data-testid="stFileUploader"] label, 
 [data-testid="stFileUploader"] ul, 
-[data-testid="stFileUploader"] li, 
-[data-testid="stFileUploaderFile"],
-[data-testid="stFileUploaderDeleteBtn"],
-[data-testid="stFileUploader"] [data-testid="stFileUploaderFileData"] {
+[data-testid="stFileUploader"] li {
     display: none !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-/* 3. Hide all the "Drag and Drop" instructions and icons */
-[data-testid="stFileUploader"] section > div:not(:has(button)) {
-    display: none !important;
-}
-
-/* 4. Remove the dashed border and background box */
-[data-testid="stFileUploader"] section {
     border: none !important;
     background: transparent !important;
+    height: 0 !important;
     padding: 0 !important;
-    min-height: unset !important;
+    margin: 0 !important;
 }
 
-/* 5. Style the button so it looks consistent */
+/* 2. EXCEPT the main section and the button itself */
+[data-testid="stFileUploader"], 
+[data-testid="stFileUploader"] section:has(button),
+[data-testid="stFileUploader"] button {
+    display: flex !important;
+    height: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* 3. Force the button to be 42px tall and look correct */
 [data-testid="stFileUploader"] button {
     background-color: #185FA5 !important;
     color: white !important;
     width: 100% !important;
     height: 42px !important;
+    min-height: 42px !important;
     border-radius: 8px !important;
     font-weight: 600 !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    margin: 0 !important;
+    margin-top: 5px !important;
+    z-index: 999 !important;
+}
+
+/* 4. Hide the "Uploaded File" data that appears after selection */
+[data-testid="stFileUploaderFileData"], 
+[data-testid="stFileUploaderFile"],
+[data-testid="stFileUploaderDeleteBtn"] {
+    display: none !important;
 }
 
         .xray-outer {
