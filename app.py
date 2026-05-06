@@ -114,53 +114,35 @@ st.markdown("""
             margin-bottom: 20px !important;
         }
 
-        /* --- FILE UPLOADER FIXED & CLEANED --- */
-            * Target the uploader container */
+        /* Keep uploader visible */
+[data-testid="stFileUploader"] {
+    display: flex !important;
+    justify-content: center !important;
+}
 
-        [data-testid="stFileUploader"] {
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;    
-        }
-        
-        [data-testid="stFileUploader"] ul,
-        [data-testid="stFileUploader"] li,
-        [data-testid="stFileUploader"] small,
-        [data-testid="stFileUploader"] [data-testid="stFileUploaderFile"],
-        [data-testid="stFileUploader"] [data-testid="fileDeleteBtn"] {
-            display: none !important;
-        }
-   
-        [data-testid="stFileUploader"] section > div {
-            display: none !important;
-            height: 0 !important;
-        }
+/* Hide ONLY file list (safe) */
+[data-testid="stFileUploaderFile"],
+[data-testid="fileDeleteBtn"],
+[data-testid="stFileUploader"] ul,
+[data-testid="stFileUploader"] li,
+[data-testid="stFileUploader"] small {
+    display: none !important;
+}
 
-        
-        [data-testid="stFileUploader"] section button {
-            display: flex !important;
-            background-color: #185FA5!important;
-            color: white !important;
-            width: 220px !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
-            border: none !important;
-            padding: 8px !important;
-            justify-content: center !important;
-            border-radius: 8px !important;
-            font-weight: bold !important;
-            font-size: 13px !important;
-        }
+/* Hide drag & drop text area ONLY (safe targeting) */
+[data-testid="stFileUploaderDropzone"] {
+    display: none !important;
+}
 
-        [data-testid="stFileUploader"] section {
-            border: none !important;
-            padding: 0 !important;
-            min-height: 0;
-            background-color: transparent !important;
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-        }
+/* Style ONLY button */
+[data-testid="stFileUploader"] button {
+    display: flex !important;
+    background-color: #185FA5 !important;
+    color: white !important;
+    width: 220px !important;
+    margin: auto !important;
+    border-radius: 8px !important;
+}
         
 
         .xray-outer {
