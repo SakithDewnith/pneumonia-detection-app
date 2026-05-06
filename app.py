@@ -157,7 +157,7 @@ st.markdown("""
         [data-testid="stFileUploader"] section {
             border: none !important;
             padding: 0 !important;
-            min-height: 0;
+
             background-color: transparent !important;
             display: flex !important;
             justify-content: center !important;
