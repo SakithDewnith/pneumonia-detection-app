@@ -143,16 +143,15 @@ st.markdown("""
 
 /* 4. Force the button to be visible and styled correctly */
 [data-testid="stFileUploader"] button {
-    display: flex !important;
     background-color: #185FA5 !important;
     color: white !important;
     width: 100% !important;
     height: 42px !important;
     border-radius: 8px !important;
     font-weight: 600 !important;
-    justify-content: center !important;
-    align-items: center !important;
-    border: none !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 /* 5. Ensure the parent container doesn't collapse or hide the button */
