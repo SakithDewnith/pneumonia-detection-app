@@ -166,6 +166,15 @@ st.markdown("""
             height: auto !important;          /* ← ADD THIS */
         }
         
+        /* Force the entire uploader to stay visible */
+        [data-testid="stFileUploader"] {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            visibility: visible !important;   /* ← ADD THIS */
+            min-height: 40px !important;      /* ← ADD THIS */
+        }
+
         .xray-outer {
             position: relative;     
             width: 100%;
