@@ -114,34 +114,36 @@ st.markdown("""
             margin-bottom: 20px !important;
         }
 
-        /* --- THE DEFINITIVE BUTTON-ONLY FIX --- */
+        /* --- THE ULTIMATE BUTTON-ONLY FIX --- */
 
-/* 1. Remove all borders and backgrounds from the uploader area */
+/* 1. Hide the file preview area, the 'uploaded' list, and the delete button */
+[data-testid="stFileUploader"] ul, 
+[data-testid="stFileUploader"] li, 
+[data-testid="stFileUploaderFile"],
+[data-testid="stFileUploaderFileData"],
+[data-testid="stFileUploaderDeleteBtn"] {
+    display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 2. Hide all default instructions, icons, and "Drag and drop" text */
+[data-testid="stFileUploader"] section > div:not(:has(button)) {
+    display: none !important;
+}
+
+/* 3. EXTREMELY IMPORTANT: Keep the section visible but remove box styling */
 [data-testid="stFileUploader"] section {
     border: none !important;
     background: transparent !important;
     padding: 0 !important;
+    min-height: unset !important;
+    display: flex !important;
+    flex-direction: column !important;
 }
 
-/* 2. Hide ALL text instructions, labels, icons, and the "or" text */
-[data-testid="stFileUploader"] label, 
-[data-testid="stFileUploader"] small, 
-[data-testid="stFileUploader"] section > div,
-[data-testid="stFileUploader"] [data-testid="stMarkdownContainer"] {
-    display: none !important;
-}
-
-/* 3. Hide the "Uploaded File" list/box that appears after you pick a file */
-[data-testid="stFileUploader"] ul, 
-[data-testid="stFileUploader"] li, 
-[data-testid="stFileUploaderFile"],
-[data-testid="stFileUploaderFileData"] {
-    display: none !important;
-    height: 0 !important;
-    margin: 0 !important;
-}
-
-/* 4. Force the button to be visible and styled correctly */
+/* 4. Force the button to stay visible at all times */
 [data-testid="stFileUploader"] button {
     background-color: #185FA5 !important;
     color: white !important;
@@ -154,10 +156,9 @@ st.markdown("""
     opacity: 1 !important;
 }
 
-/* 5. Ensure the parent container doesn't collapse or hide the button */
+/* 5. Ensure the widget doesn't collapse */
 [data-testid="stFileUploader"] {
     display: block !important;
-    visibility: visible !important;
     min-height: 42px !important;
 }
 
