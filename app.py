@@ -114,24 +114,30 @@ st.markdown("""
             margin-bottom: 20px !important;
         }
 
-        /* --- THE FINAL BUTTON-ONLY SOLUTION --- */
+        /* --- THE "STRICTLY BUTTON" FIX --- */
 
-/* 1. Reset the section to be a simple container */
+/* 1. Hide the container that holds the uploaded file list and delete button */
+[data-testid="stFileUploader"] ul, 
+[data-testid="stFileUploader"] li, 
+[data-testid="stFileUploaderFile"],
+[data-testid="stFileUploaderDeleteBtn"] {
+    display: none !important;
+}
+
+/* 2. Hide all the default instructions, icons, and "Drag and drop" text */
+[data-testid="stFileUploader"] section > div:not(:has(button)) {
+    display: none !important;
+}
+
+/* 3. Remove all box styling (borders/backgrounds) from the dropzone */
 [data-testid="stFileUploader"] section {
     border: none !important;
     background: transparent !important;
     padding: 0 !important;
+    min-height: unset !important;
 }
 
-/* 2. Hide ALL text and icons inside the uploader area */
-[data-testid="stFileUploader"] section > div:not(:has(button)),
-[data-testid="stFileUploader"] label,
-[data-testid="stFileUploader"] small,
-[data-testid="stFileUploader"] [data-testid="stMarkdownContainer"] {
-    display: none !important;
-}
-
-/* 3. Style the Button and ensure it STAYS visible */
+/* 4. Ensure the button itself is the only visible thing */
 [data-testid="stFileUploader"] button {
     background-color: #185FA5 !important;
     color: white !important;
@@ -139,22 +145,15 @@ st.markdown("""
     height: 42px !important;
     border-radius: 8px !important;
     font-weight: 600 !important;
-    border: none !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+/* 5. Force the main widget to stay visible after upload */
+[data-testid="stFileUploader"] {
     display: block !important;
     visibility: visible !important;
-}
-
-/* 4. This is the magic part: hide the 'uploaded file' preview box 
-      that pushes the button away or makes it vanish */
-[data-testid="stFileUploader"] ul,
-[data-testid="stFileUploader"] li,
-[data-testid="stFileUploaderFile"] {
-    display: none !important;
-}
-
-/* 5. Clean up the sidebar spacing */
-[data-testid="stFileUploader"] {
-    margin-bottom: 10px !important;
 }
 
         .xray-outer {
