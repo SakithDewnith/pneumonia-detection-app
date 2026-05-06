@@ -131,11 +131,7 @@ st.markdown("""
             display: none !important;
         }
    
-        [data-testid="stFileUploader"] section > div {
-            display: none !important;
-            height: 0 !important;
-        }
-
+        
         [data-testid="stFileUploader"] section button {
             display: flex !important;
             background-color: #185FA5!important;
@@ -154,7 +150,7 @@ st.markdown("""
         [data-testid="stFileUploader"] section {
             border: none !important;
             padding: 0 !important;
-            min-height: 0:
+            min-height: 0;
             background-color: transparent !important;
             display: flex !important;
             justify-content: center !important;
