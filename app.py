@@ -18,7 +18,7 @@ st.set_page_config(page_title="Pneumonia Detection AI", layout="wide")
 #Load Deep Learning model only once, not on every rerun
 @st.cache_resource                    
 def load_model():
-    model = tf.keras.models.load_model("pneumonia_model_final.keras") 
+    model = tf.keras.models.load_model("pneumonia_model.keras") 
     return model
 
 model = load_model()
