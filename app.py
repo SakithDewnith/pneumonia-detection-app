@@ -149,6 +149,9 @@ st.markdown("""
             border-radius: 8px !important;
             font-weight: bold !important;
             font-size: 13px !important;
+            visibility: visible !important;   /* ← ADD THIS */
+            opacity: 1 !important;            /* ← ADD THIS */
+            pointer-events: all !important;   /* ← ADD THIS */
         }
 
         [data-testid="stFileUploader"] section {
@@ -159,6 +162,8 @@ st.markdown("""
             display: flex !important;
             justify-content: center !important;
             align-items: center !important;
+            visibility: visible !important;   /* ← ADD THIS */
+            height: auto !important;          /* ← ADD THIS */
         }
         
         .xray-outer {
@@ -753,25 +758,25 @@ with col2:
             '<div style="display:flex;justify-content:space-between;align-items:center;'
             'padding:7px 0;border-bottom:1px solid #F1F5F9;font-size:11px;">'
             '<span style="color:#94A3B8;font-weight:600;">Recall</span>'
-            '<span style="color:#1E293B;font-weight:700;">96.2%</span>'
+            '<span style="color:#1E293B;font-weight:700;">90%</span>'
             '</div>'
 
             '<div style="display:flex;justify-content:space-between;align-items:center;'
             'padding:7px 0;border-bottom:1px solid #F1F5F9;font-size:11px;">'
             '<span style="color:#94A3B8;font-weight:500;">Precision</span>'
-            '<span style="color:#1E293B;font-weight:700;">94.1%</span>'
+            '<span style="color:#1E293B;font-weight:700;">82%</span>'
             '</div>'
  
             '<div style="display:flex;justify-content:space-between;align-items:center;'
             'padding:7px 0;border-bottom:1px solid #F1F5F9;font-size:11px;">'
             '<span style="color:#94A3B8;font-weight:500;">AUC-ROC</span>'
-            '<span style="color:#1E293B;font-weight:700;">93.5%</span>'
+            '<span style="color:#1E293B;font-weight:700;">93.4%</span>'
             '</div>'
 
             '<div style="display:flex;justify-content:space-between;align-items:center;'
             'padding:7px 0;border-bottom:1px solid #F1F5F9;font-size:11px;">'
             '<span style="color:#94A3B8;font-weight:500;">Accuracy</span>'
-            '<span style="color:#1E293B;font-weight:700;">93.8%</span>'
+            '<span style="color:#1E293B;font-weight:700;">85.1%</span>'
             '</div>'
         )
 
