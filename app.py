@@ -114,44 +114,53 @@ st.markdown("""
             margin-bottom: 20px !important;
         }
 
-        /* --- BUTTON ONLY UPLOADER --- */
+        /* --- FILE UPLOADER FIXED & CLEANED --- */
+            * Target the uploader container */
 
-/* 1. Hide the drag-and-drop text, "Browse files" label, and file limits */
-[data-testid="stFileUploader"] section > div:nth-child(1), 
-[data-testid="stFileUploader"] label,
-[data-testid="stFileUploader"] small {
-    display: none !important;
-}
+        [data-testid="stFileUploader"] {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;    
+        }
+        
+        [data-testid="stFileUploader"] ul,
+        [data-testid="stFileUploader"] li,
+        [data-testid="stFileUploader"] small,
+        [data-testid="stFileUploader"] [data-testid="stFileUploaderFile"],
+        [data-testid="stFileUploader"] [data-testid="fileDeleteBtn"] {
+            display: none !important;
+        }
+   
+        [data-testid="stFileUploader"] section > div {
+            display: none !important;
+            height: 0 !important;
+        }
 
-/* 2. Remove the dotted border and background from the upload box */
-[data-testid="stFileUploader"] section {
-    border: none !important;
-    background-color: transparent !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    min-height: 0 !important;
-}
+        
+        [data-testid="stFileUploader"] section button {
+            display: flex !important;
+            background-color: #185FA5!important;
+            color: white !important;
+            width: 220px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            border: none !important;
+            padding: 8px !important;
+            justify-content: center !important;
+            border-radius: 8px !important;
+            font-weight: bold !important;
+            font-size: 13px !important;
+        }
 
-/* 3. Force the button to be the only visible element */
-[data-testid="stFileUploader"] section button {
-    display: flex !important;
-    background-color: #185FA5 !important;
-    color: white !important;
-    width: 100% !important;
-    padding: 10px !important;
-    border-radius: 8px !important;
-    font-weight: bold !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
-}
-
-/* 4. Optional: Keep the filename visible after upload so you know it worked 
-   (If you want the filename also hidden, set this to display: none) */
-[data-testid="stFileUploaderFile"] {
-    background-color: #334155 !important;
-    margin-top: 10px !important;
-    border-radius: 6px !important;
-    color: white !important;
-}
+        [data-testid="stFileUploader"] section {
+            border: none !important;
+            padding: 0 !important;
+            min-height: 0;
+            background-color: transparent !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+        }
         
 
         .xray-outer {
