@@ -466,12 +466,14 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- SIDEBAR ---
-with st.sidebar:
-    st.title("🫁 Pneumo AI")
-
-    uploaded_file = st.file_uploader("", type=["jpg", "png", "jpeg"], key="xray_uploader")
-    if uploaded_file:
-        st.success("File uploaded successfully!")
+uploaded_file = st.file_uploader(
+    "Upload X-Ray",          # ← give it a label (hidden by CSS but helps Streamlit render the button)
+    type=["jpg", "png", "jpeg"],
+    key="xray_uploader",
+    label_visibility="collapsed"   # ← hides label text but keeps button stable
+)
+if uploaded_file:
+    st.success("✅ " + uploaded_file.name)
 
     
     if "_sensitivity" not in st.session_state:
