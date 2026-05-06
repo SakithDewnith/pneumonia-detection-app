@@ -454,8 +454,6 @@ with st.sidebar:
     st.title("🫁 Pneumo AI")
 
     uploaded_file = st.file_uploader("", type=["jpg", "png", "jpeg"], key="xray_uploader")
-    if uploaded_file:
-        st.success("File uploaded successfully!")
 
     
     if "_sensitivity" not in st.session_state:
