@@ -114,9 +114,9 @@ st.markdown("""
             margin-bottom: 20px !important;
         }
 
-        /* --- THE ULTIMATE BUTTON-ONLY FIX --- */
+        /* --- THE FINAL BUTTON-ONLY FIX --- */
 
-/* 1. Hide the file preview area, the 'uploaded' list, and the delete button */
+/* 1. Hide the file data box, the delete button, and the list items that appear AFTER upload */
 [data-testid="stFileUploader"] ul, 
 [data-testid="stFileUploader"] li, 
 [data-testid="stFileUploaderFile"],
@@ -128,12 +128,12 @@ st.markdown("""
     padding: 0 !important;
 }
 
-/* 2. Hide all default instructions, icons, and "Drag and drop" text */
+/* 2. Hide the instructions (Drag and drop text) but KEEP the button container */
 [data-testid="stFileUploader"] section > div:not(:has(button)) {
     display: none !important;
 }
 
-/* 3. EXTREMELY IMPORTANT: Keep the section visible but remove box styling */
+/* 3. Style the section container to stay visible and hold the button */
 [data-testid="stFileUploader"] section {
     border: none !important;
     background: transparent !important;
@@ -143,7 +143,7 @@ st.markdown("""
     flex-direction: column !important;
 }
 
-/* 4. Force the button to stay visible at all times */
+/* 4. Force the button to stay visible, blue, and clickable after upload */
 [data-testid="stFileUploader"] button {
     background-color: #185FA5 !important;
     color: white !important;
@@ -156,10 +156,11 @@ st.markdown("""
     opacity: 1 !important;
 }
 
-/* 5. Ensure the widget doesn't collapse */
+/* 5. Ensure the main uploader widget doesn't collapse to 0 height */
 [data-testid="stFileUploader"] {
     display: block !important;
     min-height: 42px !important;
+    visibility: visible !important;
 }
 
         .xray-outer {
