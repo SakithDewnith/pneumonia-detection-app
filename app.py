@@ -105,13 +105,13 @@ st.markdown("""
             text-align: center;
             padding-top: 0px !important;
             padding-bottom: 0px;
-            margin-bottom: 0px;
+            margin-bottom: 40px;
             display: block !important;
             color:#E6F1FB;
         }
             
         [data-testid="stSidebarUserContent"] .stElementContainer {
-            margin-bottom: 30px !important;
+            margin-bottom: 20px !important;
         }
 
         /* --- THE ULTIMATE STABLE BUTTON FIX --- */
