@@ -105,7 +105,7 @@ st.markdown("""
             text-align: center;
             padding-top: 0px !important;
             padding-bottom: 0px;
-            margin-bottom: 0px;
+            margin-bottom: 10px;
             display: block !important;
             color:#E6F1FB;
         }
@@ -114,7 +114,7 @@ st.markdown("""
             margin-bottom: 20px !important;
         }
 
-        /* --- THE ULTIMATE STABLE BUTTON FIX --- */
+        
 
 /* 1. Hide everything except the button */
 [data-testid="stFileUploader"] section > div:not(:has(button)),
