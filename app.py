@@ -105,7 +105,7 @@ st.markdown("""
             text-align: center;
             padding-top: 0px !important;
             padding-bottom: 0px;
-            margin-bottom: 40px;
+            margin-bottom: 0px;
             display: block !important;
             color:#E6F1FB;
         }
@@ -114,50 +114,48 @@ st.markdown("""
             margin-bottom: 20px !important;
         }
 
-        /* --- THE ULTIMATE STABLE BUTTON FIX --- */
 
-/* 1. Hide everything except the button */
-[data-testid="stFileUploader"] section > div:not(:has(button)),
-[data-testid="stFileUploader"] label,
-[data-testid="stFileUploader"] small,
-[data-testid="stFileUploaderFile"],
-[data-testid="stFileUploaderFileData"],
-[data-testid="stFileUploaderDeleteBtn"],
-[data-testid="stFileUploader"] ul {
-    display: none !important;
-}
 
-/* 2. Make the uploader container a fixed height so it never moves */
-[data-testid="stFileUploader"] {
-    height: 45px !important;
-    min-height: 45px !important;
-    margin-bottom: 10px !important;
-    display: flex !important;
-    align-items: center !important;
-}
+        [data-testid="stFileUploader"] section > div:not(:has(button)),
+        [data-testid="stFileUploader"] label,
+        [data-testid="stFileUploader"] small,
+        [data-testid="stFileUploaderFile"],
+        [data-testid="stFileUploaderFileData"],
+        [data-testid="stFileUploaderDeleteBtn"],
+        [data-testid="stFileUploader"] ul {
+            display: none !important;
+        }
 
-/* 3. Force the section to be transparent */
-[data-testid="stFileUploader"] section {
-    border: none !important;
-    background: transparent !important;
-    padding: 0 !important;
-    width: 100% !important;
-}
 
-/* 4. Style the button and force it to be visible */
-[data-testid="stFileUploader"] button {
-    background-color: #185FA5 !important;
-    color: white !important;
-    width: 100% !important;
-    height: 42px !important;
-    border-radius: 8px !important;
-    font-weight: 600 !important;
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: relative !important;
-    z-index: 100 !important;
-}
+        [data-testid="stFileUploader"] {
+            height: 45px !important;
+            min-height: 45px !important;
+            margin-bottom: 10px !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+
+
+        [data-testid="stFileUploader"] section {
+            border: none !important;
+            background: transparent !important;
+            padding: 0 !important;
+            width: 100% !important;
+        }
+
+        [data-testid="stFileUploader"] button {
+            background-color: #185FA5 !important;
+            color: white !important;
+            width: 100% !important;
+            height: 42px !important;
+            border-radius: 8px !important;
+            font-weight: 600 !important;
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative !important;
+            z-index: 100 !important;
+        }
 
         .xray-outer {
             position: relative;     
