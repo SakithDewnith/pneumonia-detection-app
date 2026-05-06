@@ -149,31 +149,18 @@ st.markdown("""
             border-radius: 8px !important;
             font-weight: bold !important;
             font-size: 13px !important;
-            visibility: visible !important;   /* ← ADD THIS */
-            opacity: 1 !important;            /* ← ADD THIS */
-            pointer-events: all !important;   /* ← ADD THIS */
         }
 
         [data-testid="stFileUploader"] section {
             border: none !important;
             padding: 0 !important;
-
+            min-height: 0:
             background-color: transparent !important;
             display: flex !important;
             justify-content: center !important;
             align-items: center !important;
-            visibility: visible !important;   /* ← ADD THIS */
-            height: auto !important;          /* ← ADD THIS */
         }
         
-        /* Force the entire uploader to stay visible */
-        [data-testid="stFileUploader"] {
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            visibility: visible !important;   /* ← ADD THIS */
-            min-height: 40px !important;      /* ← ADD THIS */
-        }
 
         .xray-outer {
             position: relative;     
