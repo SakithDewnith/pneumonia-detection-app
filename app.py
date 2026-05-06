@@ -131,36 +131,23 @@ st.markdown("""
             display: none !important;
         }
    
-        [data-testid="stFileUploader"] section > div {
-            display: none !important;
-            height: 0 !important;
-        }
+        /* Hide drop zone text + borders */
+[data-testid="stFileUploader"] section {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+}
 
-        
-        [data-testid="stFileUploader"] section button {
-            display: flex !important;
-            background-color: #185FA5!important;
-            color: white !important;
-            width: 220px !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
-            border: none !important;
-            padding: 8px !important;
-            justify-content: center !important;
-            border-radius: 8px !important;
-            font-weight: bold !important;
-            font-size: 13px !important;
-        }
-
-        [data-testid="stFileUploader"] section {
-            border: none !important;
-            padding: 0 !important;
-            min-height: 0;
-            background-color: transparent !important;
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-        }
+/* Keep ONLY the button */
+[data-testid="stFileUploader"] button {
+    background-color: #185FA5 !important;
+    color: white !important;
+    width: 220px !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+    font-size: 13px !important;
+}
         
 
         .xray-outer {
