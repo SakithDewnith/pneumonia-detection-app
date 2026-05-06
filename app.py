@@ -114,50 +114,52 @@ st.markdown("""
             margin-bottom: 20px !important;
         }
 
-        /* --- THE NUCLEAR BUTTON-ONLY FIX --- */
+        /* --- THE DEFINITIVE BUTTON-ONLY FIX --- */
 
-/* 1. Hide EVERY SINGLE THING inside the uploader container */
-[data-testid="stFileUploader"] div, 
-[data-testid="stFileUploader"] section, 
-[data-testid="stFileUploader"] label, 
-[data-testid="stFileUploader"] ul, 
-[data-testid="stFileUploader"] li {
-    display: none !important;
+/* 1. Remove all borders and backgrounds from the uploader area */
+[data-testid="stFileUploader"] section {
     border: none !important;
     background: transparent !important;
-    height: 0 !important;
     padding: 0 !important;
+}
+
+/* 2. Hide ALL text instructions, labels, icons, and the "or" text */
+[data-testid="stFileUploader"] label, 
+[data-testid="stFileUploader"] small, 
+[data-testid="stFileUploader"] section > div,
+[data-testid="stFileUploader"] [data-testid="stMarkdownContainer"] {
+    display: none !important;
+}
+
+/* 3. Hide the "Uploaded File" list/box that appears after you pick a file */
+[data-testid="stFileUploader"] ul, 
+[data-testid="stFileUploader"] li, 
+[data-testid="stFileUploaderFile"],
+[data-testid="stFileUploaderFileData"] {
+    display: none !important;
+    height: 0 !important;
     margin: 0 !important;
 }
 
-/* 2. EXCEPT the main section and the button itself */
-[data-testid="stFileUploader"], 
-[data-testid="stFileUploader"] section:has(button),
+/* 4. Force the button to be visible and styled correctly */
 [data-testid="stFileUploader"] button {
     display: flex !important;
-    height: auto !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
-/* 3. Force the button to be 42px tall and look correct */
-[data-testid="stFileUploader"] button {
     background-color: #185FA5 !important;
     color: white !important;
     width: 100% !important;
     height: 42px !important;
-    min-height: 42px !important;
     border-radius: 8px !important;
     font-weight: 600 !important;
-    margin-top: 5px !important;
-    z-index: 999 !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border: none !important;
 }
 
-/* 4. Hide the "Uploaded File" data that appears after selection */
-[data-testid="stFileUploaderFileData"], 
-[data-testid="stFileUploaderFile"],
-[data-testid="stFileUploaderDeleteBtn"] {
-    display: none !important;
+/* 5. Ensure the parent container doesn't collapse or hide the button */
+[data-testid="stFileUploader"] {
+    display: block !important;
+    visibility: visible !important;
+    min-height: 42px !important;
 }
 
         .xray-outer {
