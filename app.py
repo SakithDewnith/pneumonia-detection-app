@@ -131,6 +131,11 @@ st.markdown("""
             display: none !important;
         }
    
+        [data-testid="stFileUploader"] section > div {
+            display: none !important;
+            height: 0 !important;
+        }
+
         
         [data-testid="stFileUploader"] section button {
             display: flex !important;
