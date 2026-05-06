@@ -114,53 +114,55 @@ st.markdown("""
             margin-bottom: 20px !important;
         }
 
-        /* --- THE FINAL BUTTON-ONLY FIX --- */
+        /* --- THE DEFINITIVE BUTTON-ONLY FIX --- */
 
-/* 1. Hide the file data box, the delete button, and the list items that appear AFTER upload */
-[data-testid="stFileUploader"] ul, 
-[data-testid="stFileUploader"] li, 
-[data-testid="stFileUploaderFile"],
-[data-testid="stFileUploaderFileData"],
-[data-testid="stFileUploaderDeleteBtn"] {
-    display: none !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-/* 2. Hide the instructions (Drag and drop text) but KEEP the button container */
-[data-testid="stFileUploader"] section > div:not(:has(button)) {
-    display: none !important;
-}
-
-/* 3. Style the section container to stay visible and hold the button */
+/* 1. Remove all borders and backgrounds from the uploader area */
 [data-testid="stFileUploader"] section {
     border: none !important;
     background: transparent !important;
     padding: 0 !important;
-    min-height: unset !important;
-    display: flex !important;
-    flex-direction: column !important;
 }
 
-/* 4. Force the button to stay visible, blue, and clickable after upload */
+/* 2. Hide ALL text instructions, labels, icons, and the "or" text */
+[data-testid="stFileUploader"] label, 
+[data-testid="stFileUploader"] small, 
+[data-testid="stFileUploader"] [data-testid="stMarkdownContainer"] {
+    display: none !important;
+}
+
+            [data-testid="stFileUploaderDropzone"] {
+    display: none !important;
+}
+            
+/* 3. Hide the "Uploaded File" list/box that appears after you pick a file */
+[data-testid="stFileUploader"] ul, 
+[data-testid="stFileUploader"] li, 
+[data-testid="stFileUploaderFile"],
+[data-testid="stFileUploaderFileData"] {
+    display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+}
+
+/* 4. Force the button to be visible and styled correctly */
 [data-testid="stFileUploader"] button {
+    display: flex !important;
     background-color: #185FA5 !important;
     color: white !important;
     width: 100% !important;
     height: 42px !important;
     border-radius: 8px !important;
     font-weight: 600 !important;
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border: none !important;
 }
 
-/* 5. Ensure the main uploader widget doesn't collapse to 0 height */
+/* 5. Ensure the parent container doesn't collapse or hide the button */
 [data-testid="stFileUploader"] {
     display: block !important;
-    min-height: 42px !important;
     visibility: visible !important;
+    min-height: 42px !important;
 }
 
         .xray-outer {
