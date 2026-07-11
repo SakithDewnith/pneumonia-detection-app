@@ -326,14 +326,6 @@ st.markdown("""
             border-left: 4px solid #16A34A;
             box-shadow: 0 1px 6px rgba(22,163,74,0.08);
         }
-            
-        .topbar-sus {
-            background: #FFFBEB;
-            border: 1px solid #FDE68A;
-            border-left: 4px solid #D97706;
-            box-shadow: 0 1px 6px rgba(217,119,6,0.08);
-        }           
- 
 
         .topbar-left {
             display: flex;
@@ -357,11 +349,6 @@ st.markdown("""
             
         .verdict-neg { 
             color: #16A34A; 
-            text-shadow: 0px 0px 8px rgba(239, 68, 68, 0.2);
-        }
-            
-        .verdict-sus { 
-            color: #D97706; 
             text-shadow: 0px 0px 8px rgba(239, 68, 68, 0.2);
         }
             
@@ -431,13 +418,6 @@ st.markdown("""
             line-height:1.1; 
         }
             
-        .conf-val-sus { 
-            font-size:23px; 
-            font-weight:600; 
-            color:#D97706 !important; 
-            line-height:1.1; 
-        }
-            
         .conf-val-neg { 
             font-size:23px; 
             font-weight:600; 
@@ -467,6 +447,28 @@ with st.sidebar:
         disabled=True   
     )
 
+    
+    st.markdown(
+        """
+        <div style="
+            background:#0F172A;
+            border:1px solid #334155;
+            border-radius:10px;
+            padding:12px 14px;
+            margin-top:2px;
+            margin-bottom:16px;
+        ">
+            <div style="font-size:12px; font-weight:700; color:#E2E8F0; margin-bottom:4px;">
+                ⚖️ Validated Operating Point
+            </div>
+            <div style="font-size:11.5px; color:#94A3B8; line-height:1.5;">
+                Fixed threshold selected during model evaluation
+                to balance sensitivity and specificity.
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
