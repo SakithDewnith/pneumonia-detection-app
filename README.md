@@ -46,7 +46,7 @@ High recall was prioritized because reducing missed pneumonia cases is more impo
 <br>
 <br>
 
-## Business / Healthcare Problem
+## Healthcare Problem
 
 Traditional pneumonia diagnosis relies on radiologists manually analyzing chest X-rays. However, healthcare systems may face challenges such as:
 
