@@ -13,7 +13,26 @@ An end-to-end data science project that applies computer vision and deep learnin
 
 🚀 Live Demo:
 https://sakith-pneumonia-detection.streamlit.app/
-<br>
+
+
+### Dashboard Images
+<p align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="https://github.com/user-attachments/assets/59a0bc4f-c844-49a1-b210-40171edef990" width="550" alt="Screenshot 1"><br>
+        <sub><b>State: idle</b></sub>
+      </td>
+      <td align="center">
+        <img src="https://github.com/user-attachments/assets/34161686-00b3-456b-839c-64a09ad0dc00" width="550" alt="Screenshot 2"><br>
+        <sub><b>State: Pneumonia Positive</b></sub>
+      </td>
+      <td align="center">
+        <img src="https://github.com/user-attachments/assets/d77d4a51-eac7-40a9-b48d-1fa56965c5f0" width="550" alt="Screenshot 3"><br>
+        <sub><b>State: Pneumonia Negative</b></sub>
+      </td>
+    </tr>
+  </table>
 <br>
 
 ## Executive Summary
