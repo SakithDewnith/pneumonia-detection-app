@@ -23,6 +23,7 @@ def load_model():
 
 model = load_model()
 
+
 #Custom CSS
 st.markdown("""
     <style>
@@ -453,31 +454,19 @@ with st.sidebar:
 
     uploaded_file = st.file_uploader("", type=["jpg", "png", "jpeg"], key="xray_uploader")
 
-    
-    if "_sensitivity" not in st.session_state:
-     st.session_state["_sensitivity"] = 50
+    BEST_THRESHOLD = 50  
+    st.session_state["_sensitivity"] = BEST_THRESHOLD
 
-    # Reset to 50 when new image uploaded
-    if st.session_state.get("_threshold_reset"):
-     st.session_state["_sensitivity"] = 50
-     st.session_state["_threshold_reset"] = False
-
-    # Slider
     sensitivity = st.slider(
         label="Detection threshold",
         min_value=0,
         max_value=100,
+        value=BEST_THRESHOLD,
         key="_sensitivity",
-        step=1
-     )
-    
-    #Dynamic Status Box
-    if sensitivity < 40:
-        st.info("🧪 **Mode: High Sensitivity**\n\nOptimized to catch all potential cases.")
-    elif 40 <= sensitivity <= 75:
-        st.success("⚖️ **Mode: Balanced**\n\nStandard diagnostic setting.")
-    else:
-        st.warning("🎯 **Mode: High Specificity**\n\nOptimized for maximum certainty.")
+        step=1,
+        disabled=True   
+    )
+
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -539,9 +528,6 @@ def verdict_info(pneumonia_pct, threshold):
     if pneumonia_pct >= threshold:
         # Positive
         return "Pneumonia Detected", "#DC2626", "topbar-pos", "verdict-pos", "conf-val-pos", "positive"
-    
-    elif 50 < pneumonia_pct < threshold:
-        return "Inconclusive — Review Needed", "#D97706", "topbar-sus", "verdict-sus", "conf-val-sus", "suspicious"
 
     else:
         # Negative
@@ -603,7 +589,6 @@ if uploaded_file:
         st.session_state["_elapsed"]       = elapsed
         st.session_state["_scan_time"]     = time.strftime("%d %b %Y · %H:%M")
         st.session_state["_scored_file"]   = fname
-        st.session_state["_threshold_reset"] = True
 
     pneumonia_pct = st.session_state["_pneumonia_pct"]
     normal_pct    = st.session_state["_normal_pct"]
@@ -611,15 +596,13 @@ if uploaded_file:
     scan_time     = st.session_state["_scan_time"]
 
     #threshold from slider applied every time slider moves
-    threshold     = sensitivity          # slider is 0-100
+    threshold     = BEST_THRESHOLD         # slider is 0-100
     label, bar_color, tb_cls, v_cls, conf_cls, verdict_zone = verdict_info(pneumonia_pct, threshold)
 
 
 # 1. Define the dynamic detail message
     if verdict_zone == "positive":
      detail_msg = '<strong> Pneumo Prob. ' + str(pneumonia_pct) + '% exceeds ' + str(threshold) + '% threshold </strong>'
-    elif verdict_zone == "suspicious":
-     detail_msg = '<strong>Possible: Pneumo Prob. ' + str(pneumonia_pct) + '% is below ' + str(threshold) + '% threshold (Review Recommended) </strong>'
     else:
      detail_msg = '<strong>' + str(pneumonia_pct) + '% risk (Below threshold) </strong>'
 
@@ -833,7 +816,7 @@ st.markdown("""
 
 <div>
     <span style="color:#0f172a; font-weight:600;">STATUS:</span>
-    🟢 Normal | 🟡 Suspicious | 🔴 Pneumonia
+    🟢 Normal | 🔴 Pneumonia
 </div>
 
 <div>
